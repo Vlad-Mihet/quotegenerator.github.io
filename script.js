@@ -1,11 +1,35 @@
 import { json } from './quotes.js';
 
+let randomQuote = Math.floor(Math.random() * json.length);
+const author = document.getElementById('author');
+const quote = document.getElementById('quote');
+quote.innerText = json[randomQuote].quoteText;
+author.innerText = json[randomQuote].quoteAuthor;
+
 function getQuote() {
-    randomQuote = Math.floor(Math.random() * json.length)
-    author = document.getElementById('author');
-    quote = document.getElementById('quote');
+    randomQuote = Math.floor(Math.random() * json.length);
     quote.innerText = json[randomQuote].quoteText;
+    quote.classList.add('text-focus-in');
     author.innerText = json[randomQuote].quoteAuthor;
+    author.classList.add('text-focus-in');
+}
+
+function newQuote() {
+    quote.classList.remove('text-focus-in'),
+    author.classList.remove('text-focus-in');
+    quote.classList.add('text-blur-out'),
+    author.classList.add('text-blur-out');
+    setTimeout(function(){
+        quote.classList.remove('text-blur-out'),
+        author.classList.remove('text-blur-out');
+        randomQuote = Math.floor(Math.random() * json.length);
+        quote.innerText = json[randomQuote].quoteText;
+        quote.classList.add('text-focus-in'),
+        author.classList.add('text-focus-in');
+        /* quote.classList.remove('text-blur-out'),
+        quote.classList.add('text-focus-in'); */
+        author.innerText = json[randomQuote].quoteAuthor;
+    }, 600)
 }
 
 function random_bg() {
@@ -16,7 +40,7 @@ function random_bg() {
 }
 
 var button = document.getElementById('nextQuoteButton');
-button.addEventListener('click', getQuote);
+button.addEventListener('click', newQuote);
 
 random_bg();
 getQuote();
