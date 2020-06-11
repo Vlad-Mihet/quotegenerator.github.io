@@ -6,34 +6,72 @@
 }
 
 #quoteDiv {
-    width: 700px;
-    height: 350px;
-    background-color: white;
+    width: 1000px;
+    height: 400px;
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    color: white;
+    color: white!important;
     margin: auto;
 }
 
 #quote {
-    font-family: 'Sriracha', cursive;
+    font-family: 'Balsamiq Sans', cursive;
 }
 
-#quoteDiv h3,
+#quoteDiv h2,
 span {
     margin: 2rem;
 }
 
+#quote,
 #author {
-    margin-right: 2rem;
-    float: right;
+    opacity: 1.5;
+    filter: contrast(150%);
+    filter: brightness(125%);
+}
+
+#author {
+    bottom: 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+#author::before {
+    content: '- ';
+}
+
+#author::after {
+    content: ' -';
 }
 
 #quoteDiv button {
+    font-weight: 500;
+    font-size: 1.1rem;
     position: absolute;
-    bottom: 2rem;
-    right: 2rem;
+    left: 44.66725%;
+    margin-top: 3.5rem;
+    border-radius: 25px;
+    border: 0;
+    opacity: 0.6;
+    padding: 0.5rem;
+    outline: none;
+    background-color: rgb(160, 160, 160);
+}
+
+#quoteDiv button:hover {
+    opacity: 1.5;
+    filter: contrast(150%);
+    background-color: white;
+    transition-property: background-color;
+    transition-property: filter;
+    transition-property: opacity;
+    transition-duration: 0.8s;
+}
+
+#quoteHR {
+    border: 0.25rem solid white;
+    border-radius: 25px;
 }
