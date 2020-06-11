@@ -1,4 +1,4 @@
-const json = require('./quotes.json');
+import { json } from './quotes.js';
 
 function getQuote() {
     randomQuote = Math.floor(Math.random() * json.length)
@@ -10,17 +10,15 @@ function getQuote() {
     author.innerText = json[randomQuote].quoteAuthor;
 }
 
-function random_bg_color() {
-    var x = Math.floor(Math.random() * 256);
-    var y = Math.floor(Math.random() * 256);
-    var z = Math.floor(Math.random() * 256);
-    var bgColor = "rgb(" + x + "," + y + "," + z + ")";
-    document.body.style.background = bgColor;
+function random_bg() {
+    let randomBg = Math.floor(Math.random() * 7);
+    document.body.style.backgroundImage = `url(./photos/photo${randomBg})`;
     document.getElementById('quoteDiv').style.color = bgColor;
 }
 
 var button = document.getElementById('nextQuoteButton');
-button.onclick = getQuote();
+button.addEventListener('click', getQuote);
+button.addEventListener('click', random_bg);
 
 random_bg_color();
 getQuote();
