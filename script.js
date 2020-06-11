@@ -12,13 +12,11 @@ function getQuote() {
 
 function random_bg() {
     let randomBg = Math.floor(Math.random() * 7);
-    document.body.style.backgroundImage = `url(./photos/photo${randomBg})`;
-    document.getElementById('quoteDiv').style.color = bgColor;
+    document.body.style.backgroundImage = `url(./photos/photo${randomBg}.jpg)`;
 }
 
 var button = document.getElementById('nextQuoteButton');
 button.addEventListener('click', getQuote);
-button.addEventListener('click', random_bg);
 
-random_bg_color();
+random_bg();
 getQuote();
